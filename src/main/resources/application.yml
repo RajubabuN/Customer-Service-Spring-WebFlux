@@ -1,0 +1,33 @@
+server:
+ port: 8081
+spring:
+  #liquibase:
+    #url: jdbc:h2:mem:customer
+    #user: sa
+    #password: password
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: admin@123
+  #r2dbc:
+    #url: r2dbc:h2:mem:///customer?DB_CLOSE_DELAY=-1
+    #url: r2dbc:h2:file:///./testdb
+    #username: sa
+    #password: password
+    #name: customer
+  jpa:
+    #database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+       dialect: org.hibernate.dialect.PostgreSQLDialect
+url:
+   swagger:
+    permitall: /v3/api-docs/**, /swagger-ui/**, /webjars/swagger-ui/**,/console/**,/h2-console/**
+   external:
+      api:
+        base: https://host:port
+        endpoint:  /getData
+#liquibase:
+  #change-log: db/changelog/db.changelog-master.yaml
+#logging.level.root: DEBUG
+#http://localhost:8081/webjars/swagger-ui/index.html
